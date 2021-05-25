@@ -38,7 +38,7 @@ function preload ()
 
 function create ()
 {
-    this.add.image(600,500,'sky');
+    this.add.image(300,400,'sky');
 
     platforms = this.physics.add.staticGroup();
 
@@ -151,6 +151,7 @@ function collectStar (player, star)
         bomb.allowGravity = false;
 
         var allBombs = bombs.getChildren();
+         bomb.setCollideWorldBounds(true);
 
         allBombs = round+5;
         allBombs[i].y = 16;
