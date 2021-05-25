@@ -150,11 +150,10 @@ function collectStar (player, star)
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
 
-        var allBombs = bombs.getChildren();
+        var allBombs = bombs.getChildren(3);
 
         allBombs = round+5;
         allBombs[i].y = 16;
-        allBombs[i].x = i + 100;
 
         //for ( var i = 0; i < allBombs.length; i++ ) {
             //allBombs[i].y = 16; 
