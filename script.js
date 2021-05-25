@@ -146,16 +146,19 @@ function collectStar (player, star)
 
         var bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
-        //bomb.setCollideWorldBounds(true);
+        bomb.setCollideWorldBounds(false);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
 
         var allBombs = bombs.getChildren();
 
+        allBombs[i] = round+5
+
         for ( var i = 0; i < allBombs.length; i++ ) {
             allBombs[i].y = 16; 
             allBombs[i].x = i + 100;
         }
+
 
     }
 }
