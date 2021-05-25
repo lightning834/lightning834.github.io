@@ -132,12 +132,10 @@ function collectStar (player, star)
 {
     star.disableBody(true, true);
 
-    //score += 10;
-   // scoreText.setText('Score: ' + score);
     if (stars.countActive(true) === 0)
     {
         round++;
-        scoreText.setText('round: ' + round);
+        scoreText.setText('Round: ' + round);
         stars.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
