@@ -38,7 +38,7 @@ function preload ()
 
 function create ()
 {
-    this.add.image(300,400,'sky');
+    this.add.image(500,500,'sky');
 
     platforms = this.physics.add.staticGroup();
 
