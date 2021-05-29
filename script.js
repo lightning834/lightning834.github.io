@@ -38,7 +38,8 @@ function preload ()
 
 function create ()
 {
-    this.add.image(windows.innerHeight, windows.innerWidth, 'sky');
+    this.add.image(width: window.innerWidth,
+    height: window.innerHeight,'sky');
 
     platforms = this.physics.add.staticGroup();
 
@@ -145,14 +146,15 @@ function collectStar (player, star)
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         var bomb = bombs.create(x, 16, 'bomb');
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(false);
+        bomb.setBounce(2);
+        bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
 
-        var allBombs = bombs.getChildren();
+        var allBombs = bombs.getChildren(3);
 
-        allBombs[i] = round+5
+        allBombs = round+5;
+        allBombs[i].y = 16;
 
         //for ( var i = 0; i < allBombs.length; i++ ) {
             //allBombs[i].y = 16; 
