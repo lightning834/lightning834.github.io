@@ -92,7 +92,7 @@ function create ()
     round = this.add.text(16, 16, 'round: 0', { fontSize: '32px', fill: '#000' });
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(stars, platforms);
-    this.physics.add.collider(bombs, platforms);
+   // this.physics.add.collider(bombs, platforms);
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
