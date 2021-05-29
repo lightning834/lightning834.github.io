@@ -154,9 +154,9 @@ function collectStar (player, star)
 
         allBombs[i] = round+5
 
-        for ( var i = 0; i < allBombs.length; i++ ) {
-            allBombs[i].y = 16; 
-            allBombs[i].x = i + 100;
+        //for ( var i = 0; i < allBombs.length; i++ ) {
+            //allBombs[i].y = 16; 
+            //allBombs[i].x = i + 100;
         }
 
 
