@@ -38,8 +38,8 @@ function preload ()
 
 function create ()
 {
-    this.add.image(width: window.innerWidth,
-    height: window.innerHeight,'sky');
+    this.add.image(width, window.innerWidth,
+    height, window.innerHeight,'sky');
 
     platforms = this.physics.add.staticGroup();
 
@@ -163,7 +163,7 @@ function collectStar (player, star)
 
 
     }
-}
+
 
 
 function hitBomb (player, bomb)
