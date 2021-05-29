@@ -23,7 +23,7 @@ var platforms;
 var cursors;
 var score = 0;
 var gameOver = false;
-var scoreText;
+var round;
 
 var game = new Phaser.Game(config);
 
@@ -89,7 +89,7 @@ function create ()
 
     bombs = this.physics.add.group();
 
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    round = this.add.text(16, 16, 'round: 0', { fontSize: '32px', fill: '#000' });
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(stars, platforms);
     this.physics.add.collider(bombs, platforms);
@@ -133,14 +133,11 @@ function update ()
 function collectStar (player, star)
 {
     star.disableBody(true, true);
-
-    //  Add and update the score
     score += 10;
-    scoreText.setText('Score: ' + score);
+    scoreText.setText('Round: ' + round);
 
     if (stars.countActive(true) === 0)
     {
-        //  A new batch of stars to collect
         stars.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
@@ -149,14 +146,16 @@ function collectStar (player, star)
 
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-        var bomb = bombs.create(x, 16, 'bomb');
+        //var bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
-
-    }
-}
+        bombs = this.physics.add.group({
+            key: 'bomb',
+            repeat: 11,
+            setXY: { x: 12, y: 0, stepX: 70 }
+    },
 
 function hitBomb (player, bomb)
 {
@@ -166,5 +165,4 @@ function hitBomb (player, bomb)
 
     player.anims.play('turn');
 
-    gameOver = true;
-}
+    gameOver = true;}
