@@ -134,7 +134,7 @@ function update ()
 function collectStar (player, star)
 {
     star.disableBody(true, true);
-    score += 10;
+    score += 1;
     roundtext.setText('Round: ' + round++);
 
     if (stars.countActive(true) === 0)
@@ -150,14 +150,12 @@ function collectStar (player, star)
         //var bomb = bombs.create(x, 16, 'bomb');
         //bomb.setBounce(1);
         //bomb.setCollideWorldBounds(false);
-     //   bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-       // bombs.allowGravity = true;
+     //bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        bombs.allowGravity = false;
         bombs = this.physics.add.group({
             key: 'bomb',
-            repeat: 6,
+            repeat: 11,
             setXY: {x: x , y: 16 },
-            bombs,setVelocityX: (Phaser.Math.Between(-200, 200), 20),
-            bombs,setVilocityY: (Phaser.Math.Between(-200, 200), 20),
         })
     }
 }
