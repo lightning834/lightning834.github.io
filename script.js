@@ -151,16 +151,20 @@ function collectStar (player, star)
         //bomb.setBounce(1);
         //bomb.setCollideWorldBounds(false);
      //bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bombs.allowGravity(false)
+        bombs.allowgravity(false)
         bombs = this.physics.add.group({
             key: 'bomb',
             repeat: 12,
-        bombs = $(window).width() - $span.width()
+        bombs = $(window).width() - $span.width(),
         bombs = $(window).height() - $span.height()
         })
     }
 }
 
+function allowgravity()
+{
+
+}
 function hitBomb (player, bomb)
 {
     this.physics.pause();
