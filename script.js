@@ -78,7 +78,7 @@ function create ()
 
     stars = this.physics.add.group({
         key: 'star',
-        repeat: 1,
+       // repeat: 1,
         setXY: { x: 12, y: 0, stepX: 70 }
     });
 
@@ -151,7 +151,7 @@ function collectStar (player, star)
         //bomb.setBounce(1);
         //bomb.setCollideWorldBounds(false);
      //bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bombs.allowgravity(false)
+        this.allowgravitybombs.false
         bombs = this.physics.add.group({
             key: 'bomb',
             repeat: 12,
