@@ -134,7 +134,7 @@ function update ()
 function collectStar (player, star)
 {
     star.disableBody(true, true);
-    score += 1;
+    //score += 1;
     roundtext.setText('Round: ' + round++);
 
     if (stars.countActive(true) === 0)
@@ -151,10 +151,10 @@ function collectStar (player, star)
         //bomb.setBounce(1);
         //bomb.setCollideWorldBounds(false);
      //bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bombs.allowGravity = false;
+        bombs.allowGravity(false)
         bombs = this.physics.add.group({
             key: 'bomb',
-            repeat: 11,
+            repeat: 1,
             setXY: {x: x , y: 16 },
         })
     }
