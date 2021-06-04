@@ -154,7 +154,7 @@ function collectStar (player, star)
         bombs.allowGravity(false)
         bombs = this.physics.add.group({
             key: 'bomb',
-            repeat: 1,
+            repeat: 12,
             setXY: {x: x , y: 16 },
         })
     }
