@@ -155,7 +155,8 @@ function collectStar (player, star)
         bombs = this.physics.add.group({
             key: 'bomb',
             repeat: 12,
-            setXY: {x: x , y: 16 },
+        bombs = $(window).width() - $span.width()
+        bombs = $(window).height() - $span.height()
         })
     }
 }
