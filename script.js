@@ -26,7 +26,7 @@ var platforms;
 var cursors;
 var score = 0;
 var gameOver = false;
-var round = 0;
+var round = 1;
 var roundtext;
 
 var game = new Phaser.Game(config);
@@ -81,8 +81,8 @@ function create ()
 
     stars = this.physics.add.group({
         key: 'star',
-        repeat: 5,
-        setXY: { x: Math.random()* gamewidth, y: Math.random()* gameheight, stepX: Math.random(100) * 300-150}
+        repeat: 7,
+        setXY: { x:0, y:0, stepX: 100}
     });
     
 
@@ -97,7 +97,7 @@ function create ()
         debugShowVelocity: true
     });
 
-    roundtext = this.add.text(16, 16, 'round: 0', { fontSize: '32px', fill: '#000' });
+    roundtext = this.add.text(16, 16, 'round: 1', { fontSize: '32px', fill: '#000' });
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(stars, platforms);
    // this.physics.add.collider(bombs, platforms);
@@ -142,34 +142,27 @@ function collectStar (player, star)
 {
     star.disableBody(true, true);
     //score += 1;
-    
 
     if (stars.countActive(true) === 0)
     {
         stars.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
-            roundtext.setText(round++)
         });
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-        //var bomb = bombs.create(x, 16, 'bomb');
-        //bomb.setBounce(1);
-        //bomb.setCollideWorldBounds(false);
-        //bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        //this.allowgravitybombs.false
-
-        //bombs = this.physics.add.group({
-        //    key: 'bomb',
-        //    repeat: 12,
-        //});
+        round++;
+        roundtext.text="round: " + round;
 
         var bombX = Math.random() * gamewidth;
         var bombY = Math.random() * gameheight;
 
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
+        let totalNumberOfBombs = 4+round;
+        for ( let i = 0; i < totalNumberOfBombs; i++ ) {
+            let bomb = bombs.create(bombX, bombY, 'bomb');
+            bomb.setVelocityX( Math.random() * 300 - 150);
+            bomb.setVelocityY( Math.random() * 300 - 150);
+        }
 
     }
 }
