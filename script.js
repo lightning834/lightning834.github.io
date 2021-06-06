@@ -80,9 +80,9 @@ function create ()
     cursors = this.input.keyboard.createCursorKeys();
 
     stars = this.physics.add.group({
-       key: 'star',
-    repeat: 8,
-      setXY: { x: 12, y: 0, stepX: 70 }
+        key: 'star',
+        repeat: 5,
+        setXY: { x: Math.random()* gamewidth, y: Math.random()* gameheight, stepX: Math.random(100) * 300-150}
     });
     
 
@@ -149,9 +149,8 @@ function collectStar (player, star)
         stars.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
-            roundtext.setText('Round: ' + round++);
+            roundtext.setText(round++)
         });
-
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         //var bomb = bombs.create(x, 16, 'bomb');
@@ -172,49 +171,8 @@ function collectStar (player, star)
         bomb.setVelocityX( Math.random() * 300 - 150);
         bomb.setVelocityY( Math.random() * 300 - 150);
 
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
-
-        var bomb = bombs.create(bombX, bombY, 'bomb');
-        bomb.setVelocityX( Math.random() * 300 - 150);
-        bomb.setVelocityY( Math.random() * 300 - 150);
     }
 }
-
-function allowgravity()
-{
-
-}
-
 function hitBomb (player, bomb)
 {
     this.physics.pause();
