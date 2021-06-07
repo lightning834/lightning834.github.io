@@ -1,5 +1,5 @@
-var gamewidth = windows.innerwidth;
-var gameheight = windows.innerheight;
+var gamewidth = window.innerwidth;
+var gameheight = window.innerheight;
 // 800
 // 600
 var config = {
