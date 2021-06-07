@@ -1,6 +1,7 @@
-var gamewidth = 800;
-var gameheight = 600;
-
+var gamewidth = windows.innerwidth;
+var gameheight = windowss.innerheight;
+// 800
+// 600
 var config = {
     type: Phaser.AUTO,
     width: gamewidth,
