@@ -43,7 +43,7 @@ function preload ()
 
 function create ()
 {
-    this.add.image(gamewidth, gameheight, 'sky');
+    this.add.image(400,300 , 'sky');
 
     platforms = this.physics.add.staticGroup();
 
