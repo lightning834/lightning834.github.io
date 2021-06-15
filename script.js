@@ -83,7 +83,7 @@ function create ()
     stars = this.physics.add.group({
         key: 'star',
         repeat: 7,
-        setXY: { x:0, y:0, stepX: 100}
+        setXY: { x:50, y:0, stepX: 100}
     });
     
 
